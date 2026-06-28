@@ -1,4 +1,4 @@
-# PSIREG-CALIDAD
+# VSEST-Lite
 
 Repositorio documental para implementar **VSEST-Lite** como soporte de calidad del proyecto PSIREG.
 
