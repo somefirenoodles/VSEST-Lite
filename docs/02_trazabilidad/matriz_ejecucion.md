@@ -1,13 +1,9 @@
-# Matriz de ejecución y trazabilidad
+# Matriz de ejecucion y trazabilidad
 
-| ID | Requisito / tarea | Módulo | Fase | Artefacto | Evidencia | Estado | Resultado | Observación |
+| ID | Requisito / tarea | Modulo | Fase | Artefacto | Evidencia | Estado | Resultado | Observacion |
 |---|---|---|---|---|---|---|---|---|
-| TR-001 | Autenticación por rol | Seguridad | Identificación | Pendiente | Pendiente | Pendiente | Pendiente | Validar roles mínimos. |
-| TR-002 | Registro de citas | Citas | Identificación | Pendiente | Pendiente | Pendiente | Pendiente | Vincular con prueba funcional. |
-| TR-003 | Gestión de expedientes | Expedientes | Identificación | Pendiente | Pendiente | Pendiente | Pendiente | Vincular con criterios de confidencialidad. |
-| TR-004 | Gestión documental | Documentos | Identificación | Pendiente | Pendiente | Pendiente | Pendiente | Vincular con evidencia de carga/consulta. |
-| TR-005 | Auditoría OWASP ZAP | Seguridad | Identificación | Reporte ZAP | Pendiente | Pendiente | Pendiente | Clasificar hallazgos. |
-
-## Regla de trazabilidad
-
-Un requisito solo se considera validado cuando tiene artefacto, evidencia, resultado y estado final.
+| ISSUE-5 | Auditoria OWASP ZAP | General | Pendiente | Issue | Pendiente | open | Pendiente |  |
+| ISSUE-4 | Plan SQA | General | Pendiente | Issue | Pendiente | open | Pendiente |  |
+| ISSUE-3 | Matriz de riesgos | General | Pendiente | Issue | Pendiente | open | Pendiente |  |
+| ISSUE-2 | Matriz de trazabilidad | General | Pendiente | Issue | Pendiente | open | Pendiente |  |
+| ISSUE-1 | Plan de proyecto | General | Pendiente | Issue | Pendiente | open | Pendiente |  |
