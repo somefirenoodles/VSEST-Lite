@@ -2,16 +2,6 @@
 
 Repositorio documental para implementar **VSEST-Lite** como soporte de calidad del proyecto PSIREG.
 
-## Propósito
-
-VSEST-Lite adapta el enfoque de VSEST 29110 al contexto académico de PSIREG. No se construye una herramienta nueva; se utiliza GitHub como repositorio de productos de trabajo, evidencias, estados, trazabilidad, riesgos, auditoría de seguridad y evaluación del producto.
-
-## Alcance
-
-El repositorio organiza entregables del proceso de calidad: requisitos, pruebas, control de cambios, riesgos, auditoría OWASP ZAP, trazabilidad y evaluación del producto.
-
-## Estructura documental
-
 | Carpeta | Función |
 |---|---|
 | `docs/00_metodologia/` | Marco VSEST-Lite, estados de artefactos y criterios de control. |
