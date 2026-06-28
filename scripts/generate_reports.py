@@ -7,6 +7,8 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parents[1]
 REPO = os.environ.get('GITHUB_REPOSITORY', 'somefirenoodles/VSEST-Lite')
 TOKEN = os.environ.get('GITHUB_TOKEN')
+VALID_PREFIXES = ('[artefacto]', '[riesgo]', '[zap]', '[evaluacion]')
+VALID_LABELS = {'artefacto', 'riesgo', 'zap', 'evaluacion'}
 
 
 def api(path):
@@ -20,7 +22,7 @@ def api(path):
 
 
 def list_issues():
-    return api('/issues?state=all&per_page=100')
+    return api('/issues?state=open&per_page=100')
 
 
 def labels(issue):
@@ -35,6 +37,11 @@ def field(body, name):
     if match:
         return match.group(1).strip().replace('\n', ' ')
     return ''
+
+
+def is_structured_issue(title, ls):
+    t = (title or '').lower()
+    return t.startswith(VALID_PREFIXES) or bool(VALID_LABELS.intersection(set(ls)))
 
 
 def issue_type(title, ls):
@@ -67,6 +74,8 @@ def generate(issues):
         ls = labels(issue)
         body = issue.get('body') or ''
         title = issue.get('title') or ''
+        if not is_structured_issue(title, ls):
+            continue
         state = issue.get('state') or ''
         codigo = field(body, 'Codigo') or f'ISSUE-{issue.get("number")}'
         fase = field(body, 'Fase') or 'Pendiente'
