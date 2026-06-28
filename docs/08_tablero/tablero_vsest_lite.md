@@ -2,6 +2,8 @@
 
 | Tarea | Fase | Estado | Responsable | Evidencia | Proxima accion |
 |---|---|---|---|---|---|
+| [ARTEFACTO] Matriz de trazabilidad | Elaboracion | En elaboracion | Por asignar | docs/02_trazabilidad/matriz_ejecucion.md | Ejecutar workflow de generacion. |
+| [ARTEFACTO] Plan de proyecto | Elaboracion | En elaboracion | Por asignar | docs/01_plan_proyecto/README.md | Revisar y completar el plan de proyecto. |
 | Auditoria OWASP ZAP | Pendiente | open | Por asignar | Pendiente | Pendiente |
 | Plan SQA | Pendiente | open | Por asignar | Pendiente | Pendiente |
 | Matriz de riesgos | Pendiente | open | Por asignar | Pendiente | Pendiente |
