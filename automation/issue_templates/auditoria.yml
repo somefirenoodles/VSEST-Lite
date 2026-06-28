@@ -1,1 +1,82 @@
-name: Auditoria
+name: Auditoria OWASP ZAP
+description: Registrar protocolo o resultado de auditoria ZAP
+title: "[ZAP] "
+labels: ["zap"]
+body:
+  - type: input
+    id: codigo
+    attributes:
+      label: Codigo
+      placeholder: ZAP-001
+    validations:
+      required: true
+
+  - type: input
+    id: modulo
+    attributes:
+      label: Modulo
+      placeholder: Seguridad
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severidad
+    attributes:
+      label: Severidad
+      options:
+        - No ejecutable
+        - Informativa
+        - Baja
+        - Media
+        - Alta
+        - Critica
+    validations:
+      required: true
+
+  - type: dropdown
+    id: confianza
+    attributes:
+      label: Confianza
+      options:
+        - No aplica
+        - Baja
+        - Media
+        - Alta
+    validations:
+      required: true
+
+  - type: dropdown
+    id: estado
+    attributes:
+      label: Estado
+      options:
+        - Pendiente
+        - En elaboracion
+        - En revision
+        - Con observaciones
+        - Aprobado
+        - Cerrado
+        - No ejecutable
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia
+      placeholder: Indique reporte, protocolo o razon de no ejecucion.
+    validations:
+      required: true
+
+  - type: textarea
+    id: accion_correctiva
+    attributes:
+      label: Accion correctiva
+      placeholder: Indique accion requerida o futura.
+
+  - type: textarea
+    id: causa
+    attributes:
+      label: Causa
+      description: Obligatoria cuando el Estado sea No ejecutable.
+      placeholder: Explique por que no puede ejecutarse la auditoria.

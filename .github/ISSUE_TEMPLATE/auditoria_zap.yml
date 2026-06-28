@@ -50,12 +50,13 @@ body:
     attributes:
       label: Estado
       options:
-        - No ejecutable
         - Pendiente
-        - En analisis
-        - Corregido
-        - Validado
+        - En elaboracion
+        - En revision
+        - Con observaciones
+        - Aprobado
         - Cerrado
+        - No ejecutable
     validations:
       required: true
 
@@ -72,3 +73,10 @@ body:
     attributes:
       label: Accion correctiva
       placeholder: Indique accion requerida o futura.
+
+  - type: textarea
+    id: causa
+    attributes:
+      label: Causa
+      description: Obligatoria cuando el Estado sea No ejecutable.
+      placeholder: Explique por que no puede ejecutarse la auditoria.

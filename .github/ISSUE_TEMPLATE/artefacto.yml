@@ -19,19 +19,32 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: fase
     attributes:
       label: Fase
-      placeholder: Identificacion
+      options:
+        - Identificacion
+        - Planificacion
+        - Elaboracion
+        - Revision
+        - Correccion
+        - Validacion
+        - Cierre
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: estado
     attributes:
       label: Estado
-      placeholder: Pendiente
+      options:
+        - Pendiente
+        - En elaboracion
+        - En revision
+        - Con observaciones
+        - Aprobado
+        - Cerrado
     validations:
       required: true
 
@@ -40,6 +53,8 @@ body:
     attributes:
       label: Evidencia
       placeholder: docs/02_trazabilidad/matriz_ejecucion.md
+    validations:
+      required: true
 
   - type: textarea
     id: observacion

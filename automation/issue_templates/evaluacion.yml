@@ -1,1 +1,53 @@
-name: Evaluacion
+name: Evaluacion del producto
+description: Registrar criterio de evaluacion con escala ternaria
+title: "[EVALUACION] "
+labels: ["evaluacion"]
+body:
+  - type: input
+    id: codigo
+    attributes:
+      label: Codigo
+      placeholder: EV-001
+    validations:
+      required: true
+
+  - type: input
+    id: caracteristica
+    attributes:
+      label: Caracteristica
+      placeholder: Seguridad
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterio
+    attributes:
+      label: Criterio
+      placeholder: Describa el criterio evaluado.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: resultado
+    attributes:
+      label: Resultado
+      options:
+        - "0 - No cumple"
+        - "1 - Cumple parcialmente"
+        - "2 - Cumple"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencia
+    attributes:
+      label: Evidencia
+      placeholder: Ruta, documento o justificacion.
+    validations:
+      required: true
+
+  - type: textarea
+    id: observacion
+    attributes:
+      label: Observacion
+      placeholder: Comentario de evaluacion.

@@ -58,3 +58,5 @@ body:
     attributes:
       label: Mitigacion
       placeholder: Indique accion de mitigacion.
+    validations:
+      required: true

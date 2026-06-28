@@ -7,7 +7,7 @@ Esta carpeta contiene los archivos necesarios para activar el flujo automatizado
 | Ruta | Uso |
 |---|---|
 | `scripts/generate_reports.py` | Genera matrices desde issues. |
-| `scripts/validate_issues.py` | Valida consistencia minima de issues. |
+| `scripts/validate_issues.py` | Valida reglas y consistencia de issues. |
 | `automation/workflows/generate_reports.yml` | Plantilla de workflow para generar reportes. |
 | `automation/workflows/validate_issues.yml` | Plantilla de workflow para validar issues. |
 | `automation/issue_templates/artefacto.yml` | Base de plantilla para artefactos. |

@@ -13,6 +13,12 @@ Repositorio documental para implementar **VSEST-Lite** como soporte de calidad d
 | `docs/06_evaluacion/` | Escala ternaria e instrumento de evaluación del producto. |
 | `docs/07_cierre/` | Cierre, lecciones aprendidas y validación final. |
 
+## Uso
+
+Las reglas operativas viven en `vsest-lite.config.yml`. Consulte
+`docs/00_metodologia/uso_vsest_lite.md` para crear, validar y convertir issues
+estructurados en reportes.
+
 ## Regla operativa
 
 Cada tarea o artefacto debe tener:

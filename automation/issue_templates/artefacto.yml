@@ -1,1 +1,63 @@
-name: Artefacto
+name: Artefacto VSEST-Lite
+description: Registrar un producto de trabajo del proceso de calidad
+title: "[ARTEFACTO] "
+labels: ["artefacto"]
+body:
+  - type: input
+    id: codigo
+    attributes:
+      label: Codigo
+      placeholder: ART-001
+    validations:
+      required: true
+
+  - type: input
+    id: modulo
+    attributes:
+      label: Modulo
+      placeholder: Trazabilidad
+    validations:
+      required: true
+
+  - type: dropdown
+    id: fase
+    attributes:
+      label: Fase
+      options:
+        - Identificacion
+        - Planificacion
+        - Elaboracion
+        - Revision
+        - Correccion
+        - Validacion
+        - Cierre
+    validations:
+      required: true
+
+  - type: dropdown
+    id: estado
+    attributes:
+      label: Estado
+      options:
+        - Pendiente
+        - En elaboracion
+        - En revision
+        - Con observaciones
+        - Aprobado
+        - Cerrado
+    validations:
+      required: true
+
+  - type: input
+    id: evidencia
+    attributes:
+      label: Evidencia
+      placeholder: docs/02_trazabilidad/matriz_ejecucion.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: observacion
+    attributes:
+      label: Observacion
+      placeholder: Describa observaciones o pendientes.

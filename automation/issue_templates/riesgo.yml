@@ -1,1 +1,62 @@
-name: Riesgo
+name: Riesgo VSEST-Lite
+description: Registrar un riesgo del proyecto
+title: "[RIESGO] "
+labels: ["riesgo"]
+body:
+  - type: input
+    id: codigo
+    attributes:
+      label: Codigo
+      placeholder: R-001
+    validations:
+      required: true
+
+  - type: textarea
+    id: riesgo
+    attributes:
+      label: Riesgo
+      placeholder: Describa el riesgo.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: probabilidad
+    attributes:
+      label: Probabilidad
+      options:
+        - Baja
+        - Media
+        - Alta
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impacto
+    attributes:
+      label: Impacto
+      options:
+        - Bajo
+        - Medio
+        - Alto
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad
+      options:
+        - Baja
+        - Media
+        - Alta
+        - Critica
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigacion
+    attributes:
+      label: Mitigacion
+      placeholder: Indique accion de mitigacion.
+    validations:
+      required: true

@@ -1,0 +1,96 @@
+project:
+  name: VSEST-Lite
+  target_project: PSIREG
+  mode: documentation-support
+
+github:
+  repository: somefirenoodles/VSEST-Lite
+  issue_state: all
+
+issue_types:
+  artefacto:
+    display_name: Artefactos
+    prefix: "[ARTEFACTO]"
+    required_fields:
+      - Codigo
+      - Modulo
+      - Fase
+      - Estado
+      - Evidencia
+
+  riesgo:
+    display_name: Riesgos
+    prefix: "[RIESGO]"
+    required_fields:
+      - Codigo
+      - Riesgo
+      - Probabilidad
+      - Impacto
+      - Prioridad
+      - Mitigacion
+
+  zap:
+    display_name: ZAP
+    prefix: "[ZAP]"
+    required_fields:
+      - Codigo
+      - Modulo
+      - Severidad
+      - Confianza
+      - Estado
+      - Evidencia
+
+  evaluacion:
+    display_name: Evaluacion
+    prefix: "[EVALUACION]"
+    required_fields:
+      - Codigo
+      - Caracteristica
+      - Criterio
+      - Resultado
+      - Evidencia
+
+states:
+  - Pendiente
+  - En elaboracion
+  - En revision
+  - Con observaciones
+  - Aprobado
+  - Cerrado
+  - No ejecutable
+
+phases:
+  - Identificacion
+  - Planificacion
+  - Elaboracion
+  - Revision
+  - Correccion
+  - Validacion
+  - Cierre
+
+rules:
+  risk_priorities:
+    - Baja
+    - Media
+    - Alta
+    - Critica
+  evaluation_results:
+    - "0"
+    - "1"
+    - "2"
+  zap_not_executable_state: No ejecutable
+  zap_cause_fields:
+    - Causa
+    - Observacion
+  evidence_placeholders:
+    - Pendiente
+    - Por definir
+    - Sin evidencia
+
+reports:
+  traceability: docs/02_trazabilidad/matriz_ejecucion.md
+  risks: docs/03_riesgos/README.md
+  security: docs/05_seguridad/README.md
+  evaluation: docs/06_evaluacion/instrumento_producto.md
+  board: docs/08_tablero/tablero_vsest_lite.md
+  dashboard: docs/10_dashboard/resumen_estado.md

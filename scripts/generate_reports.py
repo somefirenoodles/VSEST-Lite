@@ -1,108 +1,172 @@
-import json
-import os
-import re
-import urllib.request
+import sys
+from collections import Counter, defaultdict
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parents[1]
-REPO = os.environ.get('GITHUB_REPOSITORY', 'somefirenoodles/VSEST-Lite')
-TOKEN = os.environ.get('GITHUB_TOKEN')
-VALID_PREFIXES = ('[artefacto]', '[riesgo]', '[zap]', '[evaluacion]')
-VALID_LABELS = {'artefacto', 'riesgo', 'zap', 'evaluacion'}
+from vsest_common import (
+    BASE,
+    field,
+    issue_state,
+    issue_type,
+    list_issues,
+    load_config,
+    markdown,
+)
 
 
-def api(path):
-    url = f'https://api.github.com/repos/{REPO}{path}'
-    headers = {'Accept': 'application/vnd.github+json'}
-    if TOKEN:
-        headers['Authorization'] = f'Bearer {TOKEN}'
-    req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req) as res:
-        return json.loads(res.read().decode('utf-8'))
+def write(path, lines):
+    destination = BASE / Path(path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def list_issues():
-    return api('/issues?state=open&per_page=100')
+def assignees(issue):
+    names = [assignee.get("login", "") for assignee in issue.get("assignees", [])]
+    return ", ".join(filter(None, names)) or "Por asignar"
 
 
-def labels(issue):
-    return [label.get('name', '').lower() for label in issue.get('labels', [])]
-
-
-def field(body, name):
-    if not body:
-        return ''
-    pattern = rf'### {re.escape(name)}\s*\n\s*(.+?)(?=\n### |\Z)'
-    match = re.search(pattern, body, re.S | re.I)
-    if match:
-        return match.group(1).strip().replace('\n', ' ')
-    return ''
-
-
-def is_structured_issue(title, ls):
-    t = (title or '').lower()
-    return t.startswith(VALID_PREFIXES) or bool(VALID_LABELS.intersection(set(ls)))
-
-
-def issue_type(title, ls):
-    t = (title or '').lower()
-    if 'riesgo' in ls or t.startswith('[riesgo]'):
-        return 'riesgo'
-    if 'zap' in ls or t.startswith('[zap]'):
-        return 'zap'
-    if 'evaluacion' in ls or t.startswith('[evaluacion]'):
-        return 'evaluacion'
-    return 'artefacto'
-
-
-def write(path, content):
-    full = BASE / path
-    full.parent.mkdir(parents=True, exist_ok=True)
-    full.write_text(content, encoding='utf-8')
-
-
-def generate(issues):
-    trazas = ['# Matriz de ejecucion y trazabilidad\n', '| ID | Requisito / tarea | Modulo | Fase | Artefacto | Evidencia | Estado | Resultado | Observacion |', '|---|---|---|---|---|---|---|---|---|']
-    riesgos = ['# Matriz de riesgos\n', '| ID | Riesgo | Probabilidad | Impacto | Prioridad | Mitigacion | Estado |', '|---|---|---|---|---|---|---|']
-    tablero = ['# Tablero VSEST-Lite\n', '| Tarea | Fase | Estado | Responsable | Evidencia | Proxima accion |', '|---|---|---|---|---|---|']
-    zap = ['# Reporte OWASP ZAP\n', '| ID | Hallazgo | Severidad | Confianza | Modulo | Evidencia | Prioridad | Estado | Accion correctiva |', '|---|---|---|---|---|---|---|---|---|']
-    evaluacion = ['# Instrumento de evaluacion del producto\n', '| ID | Caracteristica | Criterio | Evidencia | Resultado | Observacion |', '|---|---|---|---|---|---|']
+def generate(issues, config):
+    reports = config["reports"]
+    rows = defaultdict(list)
+    counts = {
+        type_name: Counter()
+        for type_name in config["issue_types"]
+    }
 
     for issue in issues:
-        if 'pull_request' in issue:
+        type_name = issue_type(issue, config)
+        if not type_name:
             continue
-        ls = labels(issue)
-        body = issue.get('body') or ''
-        title = issue.get('title') or ''
-        if not is_structured_issue(title, ls):
-            continue
-        state = issue.get('state') or ''
-        codigo = field(body, 'Codigo') or f'ISSUE-{issue.get("number")}'
-        fase = field(body, 'Fase') or 'Pendiente'
-        estado = field(body, 'Estado') or state
-        evidencia = field(body, 'Evidencia') or 'Pendiente'
-        modulo = field(body, 'Modulo') or 'General'
-        obs = field(body, 'Observacion') or ''
-        responsable = ', '.join(a.get('login', '') for a in issue.get('assignees', [])) or 'Por asignar'
-        tipo = issue_type(title, ls)
 
-        if tipo == 'riesgo':
-            riesgos.append(f'| {codigo} | {title} | {field(body, "Probabilidad") or "Pendiente"} | {field(body, "Impacto") or "Pendiente"} | {field(body, "Prioridad") or "Pendiente"} | {field(body, "Mitigacion") or "Pendiente"} | {estado} |')
-        elif tipo == 'zap':
-            zap.append(f'| {codigo} | {title} | {field(body, "Severidad") or "Pendiente"} | {field(body, "Confianza") or "Pendiente"} | {modulo} | {evidencia} | {field(body, "Prioridad") or "Pendiente"} | {estado} | {field(body, "Accion correctiva") or "Pendiente"} |')
-        elif tipo == 'evaluacion':
-            evaluacion.append(f'| {codigo} | {field(body, "Caracteristica") or "Pendiente"} | {field(body, "Criterio") or title} | {evidencia} | {field(body, "Resultado") or "0"} | {obs} |')
+        body = issue.get("body") or ""
+        title = issue.get("title") or ""
+        code = field(body, "Codigo") or f'ISSUE-{issue.get("number")}'
+        state = issue_state(issue, config)
+        phase = field(body, "Fase") or "Pendiente"
+        evidence = field(body, "Evidencia") or "Pendiente"
+        module = field(body, "Modulo") or "General"
+        observation = field(body, "Observacion")
+        counts[type_name][state] += 1
+
+        if type_name == "riesgo":
+            rows["risks"].append(
+                f'| {markdown(code)} | {markdown(field(body, "Riesgo"), title)} | '
+                f'{markdown(field(body, "Probabilidad"))} | {markdown(field(body, "Impacto"))} | '
+                f'{markdown(field(body, "Prioridad"))} | {markdown(field(body, "Mitigacion"))} | '
+                f'{markdown(state)} |'
+            )
+        elif type_name == "zap":
+            rows["security"].append(
+                f'| {markdown(code)} | {markdown(title)} | {markdown(field(body, "Severidad"))} | '
+                f'{markdown(field(body, "Confianza"))} | {markdown(module)} | {markdown(evidence)} | '
+                f'{markdown(field(body, "Prioridad"))} | {markdown(state)} | '
+                f'{markdown(field(body, "Accion correctiva"))} |'
+            )
+        elif type_name == "evaluacion":
+            rows["evaluation"].append(
+                f'| {markdown(code)} | {markdown(field(body, "Caracteristica"))} | '
+                f'{markdown(field(body, "Criterio"), title)} | {markdown(evidence)} | '
+                f'{markdown(field(body, "Resultado"), "0")} | {markdown(observation, "")} |'
+            )
         else:
-            trazas.append(f'| {codigo} | {title} | {modulo} | {fase} | {field(body, "Artefacto") or "Issue"} | {evidencia} | {estado} | {field(body, "Resultado") or "Pendiente"} | {obs} |')
-            tablero.append(f'| {title} | {fase} | {estado} | {responsable} | {evidencia} | {field(body, "Proxima accion") or "Pendiente"} |')
+            rows["traceability"].append(
+                f'| {markdown(code)} | {markdown(title)} | {markdown(module)} | {markdown(phase)} | '
+                f'{markdown(field(body, "Artefacto"), "Issue")} | {markdown(evidence)} | '
+                f'{markdown(state)} | {markdown(field(body, "Resultado"))} | '
+                f'{markdown(observation, "")} |'
+            )
+            rows["board"].append(
+                f'| {markdown(title)} | {markdown(phase)} | {markdown(state)} | '
+                f'{markdown(assignees(issue))} | {markdown(evidence)} | '
+                f'{markdown(field(body, "Proxima accion"))} |'
+            )
 
-    write('docs/02_trazabilidad/matriz_ejecucion.md', '\n'.join(trazas) + '\n')
-    write('docs/03_riesgos/README.md', '\n'.join(riesgos) + '\n')
-    write('docs/05_seguridad/README.md', '\n'.join(zap) + '\n')
-    write('docs/06_evaluacion/instrumento_producto.md', '\n'.join(evaluacion) + '\n')
-    write('docs/08_tablero/tablero_vsest_lite.md', '\n'.join(tablero) + '\n')
+    write(
+        reports["traceability"],
+        [
+            "# Matriz de ejecucion y trazabilidad",
+            "",
+            "| ID | Requisito / tarea | Modulo | Fase | Artefacto | Evidencia | Estado | Resultado | Observacion |",
+            "|---|---|---|---|---|---|---|---|---|",
+            *rows["traceability"],
+        ],
+    )
+    write(
+        reports["risks"],
+        [
+            "# Matriz de riesgos",
+            "",
+            "| ID | Riesgo | Probabilidad | Impacto | Prioridad | Mitigacion | Estado |",
+            "|---|---|---|---|---|---|---|",
+            *rows["risks"],
+        ],
+    )
+    write(
+        reports["security"],
+        [
+            "# Reporte OWASP ZAP",
+            "",
+            "| ID | Hallazgo | Severidad | Confianza | Modulo | Evidencia | Prioridad | Estado | Accion correctiva |",
+            "|---|---|---|---|---|---|---|---|---|",
+            *rows["security"],
+        ],
+    )
+    write(
+        reports["evaluation"],
+        [
+            "# Instrumento de evaluacion del producto",
+            "",
+            "| ID | Caracteristica | Criterio | Evidencia | Resultado | Observacion |",
+            "|---|---|---|---|---|---|",
+            *rows["evaluation"],
+        ],
+    )
+    write(
+        reports["board"],
+        [
+            "# Tablero VSEST-Lite",
+            "",
+            "| Tarea | Fase | Estado | Responsable | Evidencia | Proxima accion |",
+            "|---|---|---|---|---|---|",
+            *rows["board"],
+        ],
+    )
+
+    states = config["states"]
+    header = "| Tipo | Total | " + " | ".join(states) + " |"
+    separator = "|---|---:|" + "|".join("---:" for _ in states) + "|"
+    dashboard_rows = []
+    for type_name, type_config in config["issue_types"].items():
+        type_counts = counts[type_name]
+        total = sum(type_counts.values())
+        values = " | ".join(str(type_counts[state]) for state in states)
+        dashboard_rows.append(
+            f'| {type_config["display_name"]} | {total} | {values} |'
+        )
+    write(
+        reports["dashboard"],
+        [
+            "# Dashboard VSEST-Lite",
+            "",
+            "> Generado automaticamente desde los issues estructurados. No editar manualmente.",
+            "",
+            header,
+            separator,
+            *dashboard_rows,
+        ],
+    )
 
 
-if __name__ == '__main__':
-    generate(list_issues())
-    print('Reportes generados desde issues')
+def main():
+    try:
+        config = load_config()
+        issues = list_issues(config)
+        generate(issues, config)
+    except Exception as exc:
+        print(f"Error de ejecucion: {exc}", file=sys.stderr)
+        return 2
+    print("Reportes generados desde issues")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
