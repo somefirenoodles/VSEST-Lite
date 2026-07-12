@@ -8,6 +8,6 @@
 | ART-006 | [ARTEFACTO] Diagnóstico y propuesta de mejoras | Revision | En revision | Por asignar | docs/00_metodologia/diagnostico_mejoras_psireg.md | Revisar hallazgos y mejoras. |
 | ART-005 | [ARTEFACTO] Definición del proceso de desarrollo | Revision | En revision | Por asignar | docs/00_metodologia/proceso_desarrollo_psireg.md | Revisar actividades, tareas y artefactos. |
 | ART-004 | [ARTEFACTO] Documentación del proyecto PSIREG | Revision | En revision | Por asignar | docs/01_plan_proyecto/identificacion_psireg.md | Revisar línea base y casos de uso. |
-| ART-003 | [ARTEFACTO] Plan SQA | Revision | En revision | Por asignar | docs/04_sqa/README.md | Revisar metas, roles, pruebas y auditorías. |
-| ART-002 | [ARTEFACTO] Matriz maestra de trazabilidad | Revision | En revision | Por asignar | docs/02_trazabilidad/matriz_maestra.md | Revisar relaciones RF/RNF-CU-CP-EV. |
+| ART-003 | [ARTEFACTO] Plan SQA | Revision | En revision | Por asignar | docs/04_sqa/README.md | Revisar que las metas conserven los valores de la ERS y que ningún caso pendiente se interprete como ejecutado. |
+| ART-002 | [ARTEFACTO] Matriz maestra de trazabilidad | Revision | En revision | Por asignar | docs/02_trazabilidad/matriz_maestra.md | Contrastar las 41 relaciones con la línea base y confirmar que los reportes generados coincidan con los issues. |
 | ART-001 | [ARTEFACTO] Plan de proyecto | Planificacion | En revision | Por asignar | docs/01_plan_proyecto/README.md | Revisar alcance, roles y criterio de cierre. |
