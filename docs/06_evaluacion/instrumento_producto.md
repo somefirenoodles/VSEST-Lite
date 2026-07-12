@@ -2,6 +2,7 @@
 
 | ID | Caracteristica | RF/RNF | Criterio | Caso de prueba | Metodo | Evidencia | Resultado | Observacion |
 |---|---|---|---|---|---|---|---|---|
+| EV-020 | Portabilidad | RNF-15 | El producto funciona en el entorno web de escritorio definido sin afirmar soporte móvil. | CP-NF15 | Playwright en entorno objetivo | Pendiente de aplicación | No evaluado | El instrumento no ha sido aplicado; no se infiere cumplimiento ni falla. |
 | EV-016 | Seguridad | RNF-06 y RNF-08 | Sesión, bloqueo y permisos impiden acceso a perfiles no autorizados. | CP-NF06; CP-NF08 | Playwright, Newman y revisión | Pendiente de aplicación | No evaluado | El instrumento no ha sido aplicado; no se infiere cumplimiento ni falla. |
 | EV-014 | Fiabilidad | RNF-09 | El servicio mantiene disponibilidad 24/7 salvo mantenimiento anunciado con 48 horas. | CP-NF09 | Monitoreo | Pendiente de aplicación | No evaluado | El instrumento no ha sido aplicado; no se infiere cumplimiento ni falla. |
 | EV-019 | Mantenibilidad | RNF-12, RNF-16 y RNF-17 | Actualizaciones, soporte y cambios se realizan sin pérdida ni regresión. | CP-NF12; CP-NF16; CP-NF17 | SonarQube y prueba de cambio | Pendiente de aplicación | No evaluado | El instrumento no ha sido aplicado; no se infiere cumplimiento ni falla. |
