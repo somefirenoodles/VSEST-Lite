@@ -12,84 +12,29 @@ issue_types:
   artefacto:
     display_name: Artefactos
     prefix: "[ARTEFACTO]"
-    required_fields:
-      - Codigo
-      - Modulo
-      - Fase
-      - Estado
-      - Artefacto
-      - Evidencia
-      - Resultado
-      - Proxima accion
-
+    required_fields: [Codigo, Modulo, Fase, Estado, Artefacto, Evidencia, Resultado, Proxima accion]
   riesgo:
     display_name: Riesgos
     prefix: "[RIESGO]"
-    required_fields:
-      - Codigo
-      - Riesgo
-      - Probabilidad
-      - Impacto
-      - Prioridad
-      - Mitigacion
-
+    required_fields: [Codigo, Riesgo, Probabilidad, Impacto, Prioridad, Mitigacion, Estado]
   zap:
     display_name: ZAP
     prefix: "[ZAP]"
-    required_fields:
-      - Codigo
-      - Modulo
-      - Severidad
-      - Confianza
-      - Estado
-      - Evidencia
-
+    required_fields: [Codigo, Modulo, Severidad, Confianza, Estado, Evidencia]
   evaluacion:
     display_name: Evaluacion
     prefix: "[EVALUACION]"
-    required_fields:
-      - Codigo
-      - Caracteristica
-      - Criterio
-      - Resultado
-      - Evidencia
+    required_fields: [Codigo, Caracteristica, Criterio, Requisito, Caso de prueba, Metodo, Resultado, Evidencia, Estado, Observacion]
 
-states:
-  - Pendiente
-  - En elaboracion
-  - En revision
-  - Con observaciones
-  - Aprobado
-  - Cerrado
-  - No ejecutable
-
-phases:
-  - Identificacion
-  - Planificacion
-  - Elaboracion
-  - Revision
-  - Correccion
-  - Validacion
-  - Cierre
+states: [Pendiente, En elaboracion, En revision, Con observaciones, Aprobado, Cerrado, No ejecutable]
+phases: [Identificacion, Planificacion, Elaboracion, Revision, Correccion, Validacion, Cierre]
 
 rules:
-  risk_priorities:
-    - Baja
-    - Media
-    - Alta
-    - Critica
-  evaluation_results:
-    - "0"
-    - "1"
-    - "2"
+  risk_priorities: [Baja, Media, Alta, Critica]
+  evaluation_results: [Cumple, Cumple parcialmente, No cumple, No evaluado, No ejecutable]
   zap_not_executable_state: No ejecutable
-  zap_cause_fields:
-    - Causa
-    - Observacion
-  evidence_placeholders:
-    - Pendiente
-    - Por definir
-    - Sin evidencia
+  zap_cause_fields: [Causa, Observacion]
+  evidence_placeholders: [Pendiente, Por definir, Sin evidencia]
 
 reports:
   traceability: docs/02_trazabilidad/matriz_ejecucion.md
