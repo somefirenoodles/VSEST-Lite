@@ -5,6 +5,12 @@ on:
   issues:
     types: [opened, edited, closed, reopened, labeled, unlabeled]
 
+# Serializa las ejecuciones producidas por cambios consecutivos en issues.
+# Evita que dos jobs intenten publicar reportes sobre el mismo ref al mismo tiempo.
+concurrency:
+  group: vsest-lite-reports-${{ github.repository }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: read
@@ -12,9 +18,13 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout repository
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -24,13 +34,19 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
+      - name: Synchronize before generation
+        run: git pull --rebase origin main
+
       - name: Generate reports
         run: python scripts/generate_reports.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit generated reports
+      - name: Commit and publish generated reports
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -43,7 +59,21 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No hay cambios en reportes generados."
-          else
-            git commit -m "Generar matrices VSEST-Lite"
-            git push
+            exit 0
           fi
+
+          git commit -m "Generar matrices VSEST-Lite"
+
+          # La concurrencia evita carreras entre workflows. El rebase cubre un
+          # cambio externo excepcional ocurrido mientras se ejecutaba el job.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push rechazado; sincronizando intento ${attempt}/3."
+            git fetch origin main
+            git rebase -X theirs origin/main
+          done
+
+          echo "No fue posible publicar los reportes después de tres intentos."
+          exit 1
