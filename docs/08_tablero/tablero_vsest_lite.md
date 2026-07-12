@@ -2,6 +2,7 @@
 
 | Codigo | Tarea | Fase | Estado | Responsable | Evidencia | Proxima accion |
 |---|---|---|---|---|---|---|
+| ART-009 | [ARTEFACTO] Plan Kanban, riesgos y cierre | Revision | En revision | Por asignar | docs/07_cierre/README.md | Revisar riesgos, estados y cierre parcial. |
 | ART-008 | [ARTEFACTO] Instrumento de evaluación del producto | Revision | En revision | Por asignar | docs/06_evaluacion/instrumento_producto.md | Revisar criterios y escala de decisión. |
 | ART-007 | [ARTEFACTO] Diseño del sistema propuesto | Revision | En revision | Por asignar | docs/09_diseno/README.md | Revisar relaciones de pantallas y arquitectura. |
 | ART-006 | [ARTEFACTO] Diagnóstico y propuesta de mejoras | Revision | En revision | Por asignar | docs/00_metodologia/diagnostico_mejoras_psireg.md | Revisar hallazgos y mejoras. |

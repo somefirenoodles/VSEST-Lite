@@ -2,6 +2,7 @@
 
 | ID | Artefacto | Modulo | Fase | Ruta | Evidencia | Estado | Resultado | Observacion |
 |---|---|---|---|---|---|---|---|---|
+| ART-009 | [ARTEFACTO] Plan Kanban, riesgos y cierre | Cierre | Revision | docs/07_cierre/README.md | docs/07_cierre/README.md | En revision | Listo para revisión | Artefacto actualizado conforme a la rúbrica; no constituye evidencia de funcionamiento de PSIREG. |
 | ART-008 | [ARTEFACTO] Instrumento de evaluación del producto | Evaluacion | Revision | docs/06_evaluacion/instrumento_producto.md | docs/06_evaluacion/instrumento_producto.md | En revision | Listo para revisión | Artefacto actualizado conforme a la rúbrica; no constituye evidencia de funcionamiento de PSIREG. |
 | ART-007 | [ARTEFACTO] Diseño del sistema propuesto | Diseno | Revision | docs/09_diseno/README.md | docs/09_diseno/README.md | En revision | Listo para revisión | Artefacto actualizado conforme a la rúbrica; no constituye evidencia de funcionamiento de PSIREG. |
 | ART-006 | [ARTEFACTO] Diagnóstico y propuesta de mejoras | Metodologia | Revision | docs/00_metodologia/diagnostico_mejoras_psireg.md | docs/00_metodologia/diagnostico_mejoras_psireg.md | En revision | Listo para revisión | Artefacto actualizado conforme a la rúbrica; no constituye evidencia de funcionamiento de PSIREG. |
