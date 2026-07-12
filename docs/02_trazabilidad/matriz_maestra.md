@@ -1,45 +1,47 @@
 # Matriz maestra de trazabilidad
 
-| RF/RNF | Fuente | CU | Caso de prueba | Criterio EV | Evidencia esperada |
-|---|---|---|---|---|---|
-| RF-01 | ERS 3.1.1 | CU-01 | CP-F01 | EV-001 | Evidencia de ejecución futura |
-| RF-02 | ERS 3.1.2 | CU-02 | CP-F02 | EV-001 | Evidencia de ejecución futura |
-| RF-03 | ERS 3.1.3 | CU-03 | CP-F03 | EV-002 | Evidencia de ejecución futura |
-| RF-04 | ERS 3.1.4 | CU-04 | CP-F04 | EV-003 | Evidencia de ejecución futura |
-| RF-05 | ERS 3.1.5 | CU-05 | CP-F05 | EV-003 | Evidencia de ejecución futura |
-| RF-06 | ERS 3.1.6 | CU-06 | CP-F06 | EV-003 | Evidencia de ejecución futura |
-| RF-07 | ERS 3.1.7 | CU-07 | CP-F07 | EV-004 | Evidencia de ejecución futura |
-| RF-08 | ERS 3.1.8 | CU-08 | CP-F08 | EV-004 | Evidencia de ejecución futura |
-| RF-09 | ERS 3.1.9 | CU-09 | CP-F09 | EV-004 | Evidencia de ejecución futura |
-| RF-10 | ERS 3.1.10 | CU-10 | CP-F10 | EV-004 | Evidencia de ejecución futura |
-| RF-11 | ERS 3.1.11 | CU-11 | CP-F11 | EV-004 | Evidencia de ejecución futura |
-| RF-12 | ERS 3.1.12 | CU-12 | CP-F12 | EV-005 | Evidencia de ejecución futura |
-| RF-13 | Visión 5; ERS 3.9.1 | CU-13 | CP-F13 | EV-002 | Evidencia de ejecución futura |
-| RF-14 | Visión 5; ERS 3.9.1 y 3.9.3 | CU-14 | CP-F14 | EV-002 | Evidencia de ejecución futura |
-| RF-15 | Visión 5 | CU-15 | CP-F15 | EV-003 | Evidencia de ejecución futura |
-| RF-16 | Derivado de ERS 3.1.12 y 3.9.1 | CU-16 | CP-F16 | EV-005 | Evidencia de ejecución futura |
-| RF-17 | Visión 5 | CU-17 | CP-F17 | EV-006 | Evidencia de ejecución futura |
-| RF-18 | Visión 2.1, 3.4 y 5; ERS 3.9.3 | CU-18 | CP-F18 | EV-006 | Evidencia de ejecución futura |
-| RF-19 | Visión 5; ERS 3.1.1, 3.1.2 y 3.9.1 | CU-19 | CP-F19 | EV-001 | Evidencia de ejecución futura |
-| RNF-01 | ERS 3.2.1 | Transversal o CU relacionado | CP-NF01 | EV-011 | Evidencia de ejecución futura |
-| RNF-02 | ERS 3.2.2 | Transversal o CU relacionado | CP-NF02 | EV-012 | Evidencia de ejecución futura |
-| RNF-03 | ERS 3.2.3 | Transversal o CU relacionado | CP-NF03 | EV-011 | Evidencia de ejecución futura |
-| RNF-04 | ERS 3.2.4 | Transversal o CU relacionado | CP-NF04 | EV-013 | Evidencia de ejecución futura |
-| RNF-05 | ERS 3.2.5 | Transversal o CU relacionado | CP-NF05 | EV-013 | Evidencia de ejecución futura |
-| RNF-06 | ERS 3.2.6 | Transversal o CU relacionado | CP-NF06 | EV-016 | Evidencia de ejecución futura |
-| RNF-07 | ERS 3.2.7 | Transversal o CU relacionado | CP-NF07 | EV-011 | Evidencia de ejecución futura |
-| RNF-08 | ERS 3.3.1; Visión 3.4 y 5 | Transversal o CU relacionado | CP-NF08 | EV-016 | Evidencia de ejecución futura |
-| RNF-09 | ERS 3.3.2 y 3.6.6 | Transversal o CU relacionado | CP-NF09 | EV-014 | Evidencia de ejecución futura |
-| RNF-10 | ERS 3.3.3 | Transversal o CU relacionado | CP-NF10 | EV-015 | Evidencia de ejecución futura |
-| RNF-11 | ERS 3.3.4 | Transversal o CU relacionado | CP-NF11 | EV-018 | Evidencia de ejecución futura |
-| RNF-12 | ERS 3.3.5 | Transversal o CU relacionado | CP-NF12 | EV-019 | Evidencia de ejecución futura |
-| RNF-13 | ERS 3.4.1 | Transversal o CU relacionado | CP-NF13 | EV-007 | Evidencia de ejecución futura |
-| RNF-14 | ERS 3.4.2 | Transversal o CU relacionado | CP-NF14 | EV-008 | Evidencia de ejecución futura |
-| RNF-15 | ERS 3.5.1, 3.6.1, 3.9.1 y 3.9.2 | Transversal o CU relacionado | CP-NF15 | EV-020 | Evidencia de ejecución futura |
-| RNF-16 | ERS 3.5.2 | Transversal o CU relacionado | CP-NF16 | EV-019 | Evidencia de ejecución futura |
-| RNF-17 | ERS 3.5.3 y 3.9.3 | Transversal o CU relacionado | CP-NF17 | EV-019 | Evidencia de ejecución futura |
-| RNF-18 | ERS 3.6.2 y 3.10 | Transversal o CU relacionado | CP-NF18 | EV-009 | Evidencia de ejecución futura |
-| RNF-19 | ERS 3.6.4 y 3.6.5 | Transversal o CU relacionado | CP-NF19 | EV-017 | Evidencia de ejecución futura |
-| RNF-20 | ERS 3.7 | Transversal o CU relacionado | CP-NF20 | EV-012 | Evidencia de ejecución futura |
-| RNF-21 | ERS 3.9.4 | Transversal o CU relacionado | CP-NF21 | EV-017 | Evidencia de ejecución futura |
-| RNF-22 | Visión 4.1 y 4.2; ERS 3.9.3 | Transversal o CU relacionado | CP-NF22 | EV-010 | Evidencia de ejecución futura |
+> Línea base documental de PSIREG. Las relaciones indican cobertura prevista y no constituyen evidencia de ejecución del producto.
+
+| Fuente | RF/RNF | CU relacionado | Actividad | Tarea | Artefacto | Caso de prueba | Criterio EV | Evidencia esperada | Riesgo | Issue |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ERS 3.1.1 | RF-01 | CU-01 | Especificación y validación funcional | Revisar flujo, datos y resultado de registrar usuario | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F01 | EV-001 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.2 | RF-02 | CU-02 | Especificación y validación funcional | Revisar flujo, datos y resultado de autenticar usuario | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F02 | EV-001 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.3 | RF-03 | CU-03 | Especificación y validación funcional | Revisar flujo, datos y resultado de agendar cita | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F03 | EV-002 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.4 | RF-04 | CU-04 | Especificación y validación funcional | Revisar flujo, datos y resultado de consultar actividades, servicios y programas | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F04 | EV-003 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.5 | RF-05 | CU-05 | Especificación y validación funcional | Revisar flujo, datos y resultado de consultar detalle de actividad | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F05 | EV-003 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.6 | RF-06 | CU-06 | Especificación y validación funcional | Revisar flujo, datos y resultado de inscribirse en una actividad | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F06 | EV-003 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.7 | RF-07 | CU-07 | Especificación y validación funcional | Revisar flujo, datos y resultado de crear expediente | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F07 | EV-004 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.8 | RF-08 | CU-08 | Especificación y validación funcional | Revisar flujo, datos y resultado de consultar expediente | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F08 | EV-004 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.9 | RF-09 | CU-09 | Especificación y validación funcional | Revisar flujo, datos y resultado de actualizar expediente | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F09 | EV-004 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.10 | RF-10 | CU-10 | Especificación y validación funcional | Revisar flujo, datos y resultado de asignar programa de acompañamiento | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F10 | EV-004 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.11 | RF-11 | CU-11 | Especificación y validación funcional | Revisar flujo, datos y resultado de imprimir expediente | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F11 | EV-004 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.1.12 | RF-12 | CU-12 | Especificación y validación funcional | Revisar flujo, datos y resultado de digitalizar documentos con OCR | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F12 | EV-005 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 5; ERS 3.9.1 | RF-13 | CU-13 | Especificación y validación funcional | Revisar flujo, datos y resultado de cancelar o reprogramar cita | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F13 | EV-002 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 5; ERS 3.9.1 y 3.9.3 | RF-14 | CU-14 | Especificación y validación funcional | Revisar flujo, datos y resultado de consultar calendario y disponibilidad | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F14 | EV-002 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 5 | RF-15 | CU-15 | Especificación y validación funcional | Revisar flujo, datos y resultado de gestionar actividades institucionales | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F15 | EV-003 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Derivado de ERS 3.1.12 y 3.9.1 | RF-16 | CU-16 | Especificación y validación funcional | Revisar flujo, datos y resultado de visualizar documento digitalizado | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F16 | EV-005 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 5 | RF-17 | CU-17 | Especificación y validación funcional | Revisar flujo, datos y resultado de registrar historial de operaciones | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F17 | EV-006 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 2.1, 3.4 y 5; ERS 3.9.3 | RF-18 | CU-18 | Especificación y validación funcional | Revisar flujo, datos y resultado de generar reportes | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F18 | EV-006 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| Visión 5; ERS 3.1.1, 3.1.2 y 3.9.1 | RF-19 | CU-19 | Especificación y validación funcional | Revisar flujo, datos y resultado de gestionar cuentas y acceso por rol | `docs/01_plan_proyecto/identificacion_psireg.md`; `docs/01_plan_proyecto/casos_uso_principales.md` | CP-F19 | EV-001 | Captura, log, reporte o acta de ejecución futura | R-001; R-002 | #7; #18 |
+| ERS 3.2.1 | RNF-01 | CU-01 a CU-19 | Verificación de calidad | Aplicar la condición: la interfaz debe presentar una organización clara, lógica y coherente | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF01 | EV-011 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.2.2 | RNF-02 | CU-01 a CU-19 | Verificación de calidad | Aplicar la condición de aprendizaje en un máximo de 15 minutos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF02 | EV-012 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.2.3 | RNF-03 | CU-02, CU-03, CU-04, CU-08 y CU-14 | Verificación de calidad | Verificar acceso a funciones frecuentes en dos clics o menos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF03 | EV-011 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.2.4 | RNF-04 | CU-01 a CU-19 | Verificación de calidad | Verificar conformidad con WCAG nivel AA | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF04 | EV-013 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.2.5 | RNF-05 | CU-01, CU-03, CU-06, CU-07, CU-09, CU-10, CU-12, CU-13, CU-15, CU-17 y CU-19 | Verificación de calidad | Confirmar retroalimentación visible entre 1 y 5 segundos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF05 | EV-013 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.2.6 | RNF-06 | CU-02 y CU-19 | Verificación de calidad | Comprobar cierre de sesión y bloqueo después de 5 minutos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF06 | EV-016 | Medición, revisión o prueba reproducible futura | R-001; R-004 | #7; #8; #22 |
+| ERS 3.2.7 | RNF-07 | CU-01, CU-03, CU-06, CU-07, CU-09, CU-10, CU-12, CU-13, CU-15 y CU-19 | Verificación de calidad | Verificar orientación suficiente para completar cada operación | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF07 | EV-011 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.3.1; Visión 3.4 y 5 | RNF-08 | CU-02, CU-07 a CU-12 y CU-16 a CU-19 | Verificación de calidad | Comprobar acceso exclusivo de perfiles autorizados | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF08 | EV-016 | Medición, revisión o prueba reproducible futura | R-001; R-004 | #7; #8; #22 |
+| ERS 3.3.2 y 3.6.6 | RNF-09 | CU-01 a CU-19 | Verificación de calidad | Medir disponibilidad 24/7 y mantenimiento notificado con 48 horas | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF09 | EV-014 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.3.3 | RNF-10 | CU-07 a CU-12 y CU-16 a CU-18 | Verificación de calidad | Comparar datos registrados y digitalizados con la fuente | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF10 | EV-015 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.3.4 | RNF-11 | CU-01 a CU-03, CU-07 a CU-12 y CU-16 a CU-19 | Verificación de calidad | Revisar cumplimiento legal y ético del tratamiento de datos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF11 | EV-018 | Medición, revisión o prueba reproducible futura | R-001; R-004 | #7; #8; #22 |
+| ERS 3.3.5 | RNF-12 | CU-01 a CU-19 | Verificación de calidad | Verificar actualizaciones sin pérdida de datos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF12 | EV-019 | Medición, revisión o prueba reproducible futura | R-001; R-006 | #7; #8; #22 |
+| ERS 3.4.1 | RNF-13 | CU-01 a CU-19 | Verificación de calidad | Medir respuestas entre 1 y 10 segundos | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF13 | EV-007 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.4.2 | RNF-14 | CU-01 a CU-19 | Verificación de calidad | Medir CPU menor o igual a 60 % y RAM menor o igual a 50 % | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF14 | EV-008 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.5.1, 3.6.1, 3.9.1 y 3.9.2 | RNF-15 | CU-01 a CU-19 | Verificación de calidad | Probar el entorno web de escritorio definido sin afirmar soporte móvil | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF15 | EV-020 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.5.2 | RNF-16 | CU-19 y actividades transversales de soporte | Verificación de calidad | Verificar acceso de mantenimiento por personal autorizado | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF16 | EV-019 | Medición, revisión o prueba reproducible futura | R-001; R-006 | #7; #8; #22 |
+| ERS 3.5.3 y 3.9.3 | RNF-17 | CU-01 a CU-19 | Verificación de calidad | Verificar cambios y extensiones sin regresión | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF17 | EV-019 | Medición, revisión o prueba reproducible futura | R-001; R-006 | #7; #8; #22 |
+| ERS 3.6.2 y 3.10 | RNF-18 | CU-12, CU-18 y componentes transversales | Verificación de calidad | Revisar licencias, privacidad y compatibilidad institucional | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF18 | EV-009 | Medición, revisión o prueba reproducible futura | R-001; R-005 | #7; #8; #22 |
+| ERS 3.6.4 y 3.6.5 | RNF-19 | CU-01 a CU-03, CU-07 a CU-12 y CU-16 a CU-19 | Verificación de calidad | Comprobar almacenamiento seguro, cifrado y control de acceso | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF19 | EV-017 | Medición, revisión o prueba reproducible futura | R-001; R-004 | #7; #8; #22 |
+| ERS 3.7 | RNF-20 | CU-01 a CU-06 | Verificación de calidad | Verificar guía, preguntas frecuentes y soporte | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF20 | EV-012 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
+| ERS 3.9.4 | RNF-21 | CU-01 a CU-19 | Verificación de calidad | Comprobar HTTPS y TLS en la infraestructura institucional | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF21 | EV-017 | Medición, revisión o prueba reproducible futura | R-001; R-004 | #7; #8; #22 |
+| Visión 4.1 y 4.2; ERS 3.9.3 | RNF-22 | CU-11, CU-16, CU-18 y capacidad transversal de integración | Verificación de calidad | Verificar operación autónoma, exportación y capacidad futura de integración | `docs/04_sqa/README.md`; `docs/06_evaluacion/guia_aplicacion.md` | CP-NF22 | EV-010 | Medición, revisión o prueba reproducible futura | R-001; R-002 | #7; #8; #22 |
